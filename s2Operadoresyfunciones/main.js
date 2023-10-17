@@ -1,3 +1,8 @@
+//Create functions to add, rest, multiply, divide and module two numbers.
+//Create a function to determinate if a number is bigger than other.
+//Create a function to determinate if a number is pair.
+
+
 function additionOf2(a,b){
     let resultAddition= a+b;
     return resultAddition
