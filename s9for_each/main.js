@@ -54,9 +54,9 @@ let koderNewArray = [
 
 const initialsNames = koderNewArray => {
     koderNewArray.forEach(person => {
+        let koderinitials = ""
         let {firstName,lastName} = person;
         ftNameArray = firstName.split(" ");
-        koderinitials = ""
         ftNameArray.forEach((kodername) =>{
             let iName = kodername.charAt(0);
             koderinitials += `${iName}. `;
