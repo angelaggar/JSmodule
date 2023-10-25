@@ -43,7 +43,7 @@ let koders = [
     
     }
     totalScore = average / koders.length
-    console.log(totalScore);
+    console.log(totalScore.toFixed(2));
 }
 
 scoreKoders(koders);

@@ -11,18 +11,44 @@ cualquier otra variante, indica que la persona no es ganadora.
 let ballColor = ""
 let ballNum = 0
 
-function bingoGame (ballColor,ballNum){
-    let result = ""
-    if ((ballColor == "rojo"||"red") && (ballNum == 7)){
-        result = "Felicidades! Ganaste el primer premio!!"
-    } else if ((ballColor== "verde" || "green")&& (ballNum == 2)) {
-        result = "Felicidades! Eres acreedor al segundo premio!"
-    } else {
-        result = "Seguro tendrás más suerte la próxima vez!"
+let options = [
+    {ballColor:"rojo", ballNum:7}, 
+    {ballColor:"verde", ballNum:2},
+    {ballColor:"azul", ballNum:1},
+    {ballColor:"amarillo", ballNum:3},
+    {ballColor:"negro", ballNum:5},
+    {ballColor:"amarillo", ballNum:11},
+    {ballColor:"verde", ballNum:13},
+    {ballColor:"amarillo", ballNum:17},
+    {ballColor:"negro", ballNum:19},
+    {ballColor:"rojo", ballNum:23},
+]
+
+for (let i = 0; i < options.length ; i++) {
+    let j = Math.floor(Math.random(options) * (i+1));
+    let k = points[i];
+    points[i] = points[j];
+    points[j] = k;
+  }
+
+
+
+
+
+function bingoGame (options){
+    for (let i = 0; i < options.length; i++) {    
+        let winnerBall = Math.floor(Math.random() * (options.length+1))
+        let result = winnerBall
+        if ((options.ballColor == "rojo") && (options.ballNum == 7)){
+            result = "Felicidades! Ganaste el primer premio!!"
+        } else if ((options.ballColor== "verde")&& (options.ballNum == 2)) {
+            result = "Felicidades! Eres acreedor al segundo premio!"
+        } else {
+            result = "Seguro tendrás más suerte la próxima vez!"
+        }
     }
     return result
 }
 
-console.log (bingoGame("azul",8));
-console.log (bingoGame("red",7));
-console.log(bingoGame("verde",2))
+console.log (bingoGame(options));
+
