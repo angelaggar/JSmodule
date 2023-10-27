@@ -287,12 +287,9 @@ MXNprice(products,18.08)
   2.- crear una nueva lista que contenga únicamente los nombres de todos los productos
 */
 const productList = (products) =>{
-  let result = products.map((item)=>{
-    let product = item.title
-    return {product}
-  })
-  console.log (result);
- }
+  let result = products.map((item=> item.title{
+    return {result}
+  }))}
 
  productList(products)
 
