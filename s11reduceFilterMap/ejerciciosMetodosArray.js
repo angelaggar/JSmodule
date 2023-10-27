@@ -323,7 +323,35 @@ console.log (genderList(users,"male"))
 
 const userPii = ((userList) =>{
   let result = userList.reduce((accum,current)=>{
-    current = `Full name: ${current.name.first} ${current.name.last}.\nAddress: ${current.location.street.name} ${current.location.street.number}, ${current.location.city}, ${current.location.state}, ${current.location.country}, ${current.location.postcode}.\n\n` 
+    current = `Full name: ${current.name.first} ${current.name.last}.\nAddress: ${
+    current.location.street.name} #${current.location.street.number}, ${
+    current.location.city}, ${current.location.state}, ${current.location.country}, ${
+    current.location.postcode}.\n\n` 
+    return accum + current 
+  },"")
+  return result
+})
+
+console.log(userPii(users))
+
+const userPiiMapped = ((userList)=>{
+  let result = userList.map((item)=>{
+    fullname = `${item.name.first} ${item.name.last}`
+    address = `${item.location.street.name} ${item.location.street.number}, ${
+    item.location.city}, ${item.location.state}, ${item.location.country}, ${
+    item.location.postcode}`
+      return `Full name: ${fullname} // Address: ${address}.`
+  })
+  console.log(result)
+})
+
+userPiiMapped(users)
+
+const userPii2 = ((userList) =>{
+  let result = userList.reduce((accum,current)=>{
+    let{first, last, name, number, city, state, country, postcode} = user
+    current = `Full name: ${first} ${last}.\nAddress: ${name} #${number}, ${
+    city}, ${state}, ${country}, ${postcode}.\n\n` 
     return accum + current 
   },"")
   return result
